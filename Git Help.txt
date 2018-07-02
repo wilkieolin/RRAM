@@ -10,3 +10,5 @@ git commit -a		# Uploads local file online
 git add *.(filetype ex. txt or py)
 
 git commit -a then do i for insert then comment what you want. then press esc then write :wq for write quit.
+
+git push origin master for finally uploading the files
