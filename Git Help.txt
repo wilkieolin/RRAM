@@ -1,0 +1,8 @@
+git status		# Check status
+
+git config --global user.name "Put in user name"
+git config --global user.email "Put in email"
+
+git pull origin master		# Puts files on local folder
+
+git commit -a		# Uploads local file online
