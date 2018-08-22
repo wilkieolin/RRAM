@@ -37,6 +37,10 @@ class analysing_software():
         self.n=0
         self.no=np.zeros((self.N,1),dtype=int)
         
+        self.corrA=np.zeros((1,self.N),dtype=float)
+        self.uncentcov=np.zeros((self.maxrow,self.maxcol),dtype=float)
+        self.a=np.zeros((self.N,self.N),dtype=float)
+        
     
     #this changes the value of all processes when k/kn is incremented        
     def array_at_time_k(self):
@@ -137,6 +141,24 @@ class analysing_software():
     
     def getK0(self):
         return self.k0
+    
+    def uncenteredCovariance(self):
+        time=self.k
+        print('time',time)
+        
+        #uncentered covariance matrix
+        for i in range(self.N):  #row
+            for j in range(self.N):   #col
+                for k in range(time):    #total time instant
+                    self.a[i,j]+=(self.x[i,k]*self.x[j,k])
+                
+        #weights,found by adding across a row of the NxN uncentered cov matrix
+        for i in range(25):
+            for j in range(25):
+                self.corrA[0,i]+=(self.a[i,j]/time)
+                
+        self.uncentcov=np.reshape(self.corrA,(self.maxrow,self.maxcol))
+        return self.uncentcov
     
         
         

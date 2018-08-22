@@ -64,4 +64,6 @@ print('\n Storing the resistance read in an array=\n',correlation.getResistanceR
 #print(correlation.numberOfOnes())
 print(correlation.plotImage()) 
 #print(correlation.conductancePlot(),'\n')
-print(correlation.getK0())
+print('total samples',correlation.getK0())
+print(correlation.uncenteredCovariance())
+
